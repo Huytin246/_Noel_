@@ -2,54 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MERRY CHRISTMAS</title>
-    {<link rel="stylesheet" href="./styles.css">}
-    <link rel="stylesheet" href="./css/tree.css">
- 
 
+    <!-- FIX viewport cho mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>MERRY CHRISTMAS</title>
+
+    <!-- FIX link CSS (bỏ dấu {}) -->
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./css/tree.css">
 </head>
+
 <body>
+
+    <!-- Nội dung chính -->
     <div id="Merry" class="christmas-message">Merry Christmas</div>
-    <img class="tree-icon">
+
+    <img class="tree-icon" alt="Christmas Tree">
+
     <audio id="audio" src="./giangsinh.mp3"></audio>
+
     <div class="container">
         <button id="showButton">
-            <img src="./img/letters.png" alt="Hình ảnh nút" />
+            <img src="./img/letters.png" alt="Open letter" />
         </button>
     </div>
 
+    <!-- Popup thiệp (scroll được trên mobile) -->
     <div id="guideInfo" class="hidden">
         <button id="closeButton" class="close-btn">X</button>
+
         <div class="card">
             <div class="imgBox">
                 <div class="bark"></div>
-                <img src="./img/thiep.png">
+                <img src="./img/thiep.png" alt="Christmas Card">
             </div>
+
             <div class="details">
-                <h4 class="color margin"> MERRY CHRISTMAS </h4>
+                <h4 class="color margin">MERRY CHRISTMAS</h4>
                 <p>Giáng Sinh này tớ chỉ mong</p>
                 <p>mọi điều tốt đẹp sẽ đến với cậu,</p>
                 <p>và tình bạn chúng ta sẽ luôn bền chặt</p>
                 <p>Chúc cậu một mùa lễ an lành</p>
                 <p>và một năm mới đầy niềm vui!</p>
                 <p class="text-right">Chúc mừng Giáng Sinh!</p>
-                <p class="text-right">♥Your friend♥</p>
+                <p class="text-right">♥ Your friend ♥</p>
             </div>
         </div>
     </div>
 
+    <!-- GIF cố định -->
     <div class="fixed-gif">
-        <img src="./img/mewmew.gif" alt="GIF Image">
-      </div>
+        <img src="./img/mewmew.gif" alt="Cute cat">
+    </div>
+
+    <!-- Snow -->
     <div id="snow-container"></div>
 
+    <!-- Script -->
     <script src="./script.js"></script>
+
+    <!-- FIX autoplay mobile -->
     <script>
-        document.body.addEventListener("click", function() {
-             var audio = document.getElementById("audio");
-             audio.play();
-         });
-     </script>
+        document.body.addEventListener("touchstart", function () {
+            const audio = document.getElementById("audio");
+            audio.play().catch(() => {});
+        }, { once: true });
+    </script>
+
 </body>
 </html>
